@@ -1,6 +1,7 @@
 fastapi
 uvicorn
 pandas
-gensim
 pyodbc==4.0.35
+gensim==4.3.1
+scipy==1.10.1
 wheel
