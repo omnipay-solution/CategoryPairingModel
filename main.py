@@ -76,13 +76,12 @@ else:
 class CategoryRequest(BaseModel):
     category: str
 
-# === Step 5: POST API Endpoint ===
+# === API Endpoint ===
 @app.post("/recommend")
 def recommend(request: CategoryRequest):
     category = request.category.upper()
     if category in model.wv:
-        default_topn = 3  # <- Fixed number of recommendations
-        recommendations = model.wv.most_similar(category, topn=default_topn)
+        recommendations = model.wv.most_similar(category, topn=3)
         return {
             "base_category": category,
             "recommendations": [
@@ -90,3 +89,9 @@ def recommend(request: CategoryRequest):
             ]
         }
     return {"error": f"Category '{category}' not found in model"}
+
+# === ✅ Add this block to run the app properly on Render ===
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=True)
