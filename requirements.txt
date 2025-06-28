@@ -1,6 +1,6 @@
 fastapi
 uvicorn
-pydantic
 pandas
-pyodbc
 gensim
+pyodbc==4.0.35
+wheel
