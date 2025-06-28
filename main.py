@@ -90,6 +90,3 @@ def recommend(request: CategoryRequest):
         }
     return {"error": f"Category '{category}' not found in model"}
 
-
-uvicorn main:app --host 0.0.0.0 --port 10000
- 
