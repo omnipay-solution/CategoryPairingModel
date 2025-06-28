@@ -3,7 +3,7 @@ services:
     name: category-recommender-api
     runtime: python
     buildCommand: ""
-    startCommand: uvicorn main:app --host 127.0.0.1 --port 8000 reload=True
+    startCommand: uvicorn main:app --reload
     envVars:
       - key: PYTHON_VERSION
         value: 3.10
