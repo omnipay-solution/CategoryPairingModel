@@ -90,8 +90,6 @@ def recommend(request: CategoryRequest):
         }
     return {"error": f"Category '{category}' not found in model"}
 
-# === ✅ Add this block to run the app properly on Render ===
-if __name__ == "__main__":
-    import uvicorn
-    port = int(os.environ.get("PORT", 8000))
-    uvicorn.run("main:app", host="0.0.0.0", port=port)
+
+uvicorn main:app --host 0.0.0.0 --port 10000
+ 
